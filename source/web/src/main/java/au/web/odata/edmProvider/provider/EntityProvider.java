@@ -1,7 +1,9 @@
 package au.web.odata.edmProvider.provider;
 
+import java.util.Arrays;
 import java.util.List;
 
+import org.apache.olingo.commons.api.edm.EdmPrimitiveTypeKind;
 import org.apache.olingo.commons.api.edm.FullQualifiedName;
 import org.apache.olingo.commons.api.edm.provider.CsdlEntitySet;
 import org.apache.olingo.commons.api.edm.provider.CsdlEntityType;
@@ -38,5 +40,13 @@ public interface EntityProvider {
 	
 	public List<CsdlProperty> getProperties();
 	
-	public List<CsdlPropertyRef> getKeys();
+	public default List<CsdlPropertyRef> getKeys(){
+		CsdlPropertyRef propertyRef = new CsdlPropertyRef();
+		propertyRef.setName(ODataConst.JPA_ENTITY_PKEY);
+		return Arrays.asList(propertyRef);
+	}
+	
+	public default CsdlProperty property(String key, EdmPrimitiveTypeKind value) {
+		return  new CsdlProperty().setName(key).setType(value.getFullQualifiedName());
+	}
 }

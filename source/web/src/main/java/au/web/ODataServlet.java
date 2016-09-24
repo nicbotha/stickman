@@ -25,9 +25,26 @@ public class ODataServlet extends HttpServlet {
 	private static final long serialVersionUID = 993870267037039415L;
 	protected static final Logger log = LoggerFactory.getLogger(ODataServlet.class);
 	private WebApplicationContext context = null;
-
-	@Override
+	
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doOData(req, resp);
+	}
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doOData(req, resp);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doOData(req, resp);
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doOData(req, resp);
+	}
+	
+	private void doOData(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			CsdlEdmProvider csdlEdmProvider = (CsdlEdmProvider) context.getBean("GenericEdmProvider");
 			Processor processor = (Processor) context.getBean("GenericEntityProcessor");

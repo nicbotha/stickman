@@ -1,4 +1,4 @@
-package au.web.odata.entityProcessor.processor;
+package au.web.odata.entityProcessor;
 
 import org.apache.olingo.commons.api.edm.EdmPrimitiveTypeException;
 
