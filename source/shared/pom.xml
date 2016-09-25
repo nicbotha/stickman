@@ -7,17 +7,7 @@
     <artifactId>root</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>au.project</groupId>
   <artifactId>shared</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <name>shared</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+ 
 </project>

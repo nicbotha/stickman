@@ -15,13 +15,13 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-		
+
 		<dependency>
-			<groupId>au.project</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>shared</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-	
+
 		<!-- General (Loggin, Commons) -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -141,4 +141,23 @@
 			<artifactId>commons-dbcp2</artifactId>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${basedir}/target</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

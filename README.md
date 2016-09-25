@@ -4,6 +4,14 @@ This project contains the minimum code to run a Java application with a few basi
 Clone and run
 `mvn clean install -Dspring.profiles.active="test"`
 
+HCP Local
+'mvn clean install neo-java-web:deploy-local -Dspring.profiles.active="test"'
+'mvn neo-java-web:start-local'
+
+Integration Test
+Goto the web project directory
+'mvn clean install -P integration-test -Dspring.profiles.active="dev"'
+
 ## Model
 Contains all persistence related code and configuration. 
 
