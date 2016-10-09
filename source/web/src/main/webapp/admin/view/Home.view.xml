@@ -1,0 +1,18 @@
+<mvc:View controllerName="stickman.adminapp.controller.Home" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+	<Page title="Stickman" class="sapUiResponsiveContentPadding">
+		<content>
+			<!-- Button id="displayNotFoundBtn" text="Display NotFound" press="onDisplayNotFound" class="sapUiTinyMarginEnd" /-->
+			
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>Tile.Header.Some}" subheader="{i18n>Tile.Subheader.Some}" press="onSomePress">
+				<tileContent>
+					<TileContent>
+						<content>
+							<ImageContent src="/web/admin/images/someImage.png" />
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+		</content>
+	</Page>
+</mvc:View>

@@ -33,10 +33,12 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
-	
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+
+	<!-- TODO Enable CSRF, see https://help.hana.ondemand.com/help/frameset.htm?e5be9994bb571014b575a785961062db.html -->
 
 	<servlet>
 		<servlet-name>odata</servlet-name>
