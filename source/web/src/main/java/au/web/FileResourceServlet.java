@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,10 +23,9 @@ import org.apache.chemistry.opencmis.commons.enums.VersioningState;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisNameConstraintViolationException;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisObjectNotFoundException;
 
+import com.sap.ecm.api.EcmService;
 import com.sap.ecm.api.RepositoryOptions;
 import com.sap.ecm.api.RepositoryOptions.Visibility;
-import com.sap.ecm.api.EcmService;
-import javax.naming.InitialContext;
 
 /**
  * Servlet implementation class HelloWorldServlet

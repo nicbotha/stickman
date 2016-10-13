@@ -7,6 +7,7 @@
 
 		<class>au.model.entity.BaseEntity</class>
 		<class>au.model.entity.SomeEntity</class>
+		<class>au.model.entity.FileResource</class>
 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<validation-mode>CALLBACK</validation-mode>

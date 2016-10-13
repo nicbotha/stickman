@@ -54,14 +54,14 @@
 	</servlet-mapping>
 	
 		<servlet>
-		<servlet-name>doco</servlet-name>
-		<servlet-class>au.web.DocumentsServlet</servlet-class>
+		<servlet-name>fileresource</servlet-name>
+		<servlet-class>au.web.FileResourceServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>doco</servlet-name>
-		<url-pattern>/doco/*</url-pattern>
+		<servlet-name>fileresource</servlet-name>
+		<url-pattern>/fileresource/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>

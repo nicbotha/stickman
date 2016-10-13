@@ -1,5 +1,8 @@
 # stickman
-This project contains the minimum code to run a Java application with a few basic features. 
+This project contains the minimum code to run a Java application with a few basic features. Branch includes implementation of HCP documents store service
+
+NOTE - for local testing MongoDB needs to run, see https://help.hana.ondemand.com/help/frameset.htm?1c6d4a951e7c48c1acfd29b63b56ef43.html.
+To start MongoDB: mongod --dbpath C:\mongodb_data
 
 Clone and run
 `mvn clean install -Dspring.profiles.active="test"`
@@ -26,3 +29,4 @@ Contains all persistence related code and configuration.
 - Spring Data
 - Hibernate Validator
 - DBUnit
+

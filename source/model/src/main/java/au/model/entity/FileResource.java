@@ -23,12 +23,17 @@ public class FileResource extends BaseEntity {
 	private String name;
 	
 	@Column(name="description",length = 250, nullable = true)
+	@Size(message = "{model.fileresource.description.size}", min = 0, max = 250)
 	private String description;
 	
 	@Column(name="docStoreId", length = 50, nullable = false)
+	@NotNull(message = "{model.fileresource.docStoreId.notnull}")
+	@Size(message = "{model.fileresource.docStoreId.size}", min = 1, max = 50)
 	private String docStoreId;
 	
 	@Column(name="docStorePreviewId", length = 50, nullable = false)
+	@NotNull(message = "{model.fileresource.docStorePreviewId.notnull}")
+	@Size(message = "{model.fileresource.docStorePreviewId.size}", min = 1, max = 50)
 	private String docStorePreviewId;
 	
 	@Column(name="tags", length = 100, nullable = true)

@@ -1,6 +1,9 @@
 <dataset>
 	<someentity id="-1" tenant_id="TENANT-01" name="TEST-1" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
 	<someentity id="-2" tenant_id="TENANT-02" name="TEST-1" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
+	
+	<!-- FileResource -->
+	<FileResource id="-1" tenant_id="TENANT-01" name="FileResource-1" description="Short description" docStoreId="uniqueId1" docStorePreviewId="uniqueId2" tags="img,doc,xml" type="IMAGE" creationDate="2014-01-01 12:00:00" modifiedDate="2014-01-01 12:00:00" createdBy="Nic" version="0"/>
 </dataset>
 
 
