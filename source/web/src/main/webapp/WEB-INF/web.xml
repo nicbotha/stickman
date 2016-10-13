@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="WebApp_ID" version="2.5"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<web-app id="WebApp_ID" version="2.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
 	<session-config>
 		<session-timeout>10</session-timeout>
@@ -16,6 +13,11 @@
 	<resource-ref>
 		<res-ref-name>TenantContext</res-ref-name>
 		<res-type>com.sap.cloud.account.TenantContext</res-type>
+	</resource-ref>
+
+	<resource-ref>
+		<res-ref-name>EcmService</res-ref-name>
+		<res-type>com.sap.ecm.api.EcmService</res-type>
 	</resource-ref>
 
 	<context-param>
@@ -49,6 +51,17 @@
 	<servlet-mapping>
 		<servlet-name>odata</servlet-name>
 		<url-pattern>/odata/*</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>doco</servlet-name>
+		<servlet-class>au.web.DocumentsServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>doco</servlet-name>
+		<url-pattern>/doco/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>
