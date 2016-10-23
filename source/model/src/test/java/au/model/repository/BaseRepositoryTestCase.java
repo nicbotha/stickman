@@ -2,13 +2,22 @@ package au.model.repository;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItems;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -129,6 +138,24 @@ public abstract class BaseRepositoryTestCase<T extends CrudRepository<L, String>
 
 		log.debug("<< testDeleteEntity()");
 	}
+	
+	public void checkExceptions(L entity, String[] expected) {
+		boolean exception = false;
+		try {
+			getRepository().save(entity);
+		} catch (ConstraintViolationException e) {
+			exception = true;
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			List<String> actual = new ArrayList<>();
+			for(@SuppressWarnings("rawtypes") ConstraintViolation v : violations) {
+				actual.add(v.getMessage());
+			}
+			assertEquals("Unexpected number of exceptions.", expected.length, actual.size());
+			assertThat("Expected exception not present.", actual, hasItems(expected));
+			
+		}
+		assertTrue("Unexpected result status: Bean validation failed.",exception);		
+	}
 
 	public T getRepository() {
 		return repository;
@@ -137,7 +164,7 @@ public abstract class BaseRepositoryTestCase<T extends CrudRepository<L, String>
 	protected String getI18n(String key) {
 		return bundle.getString(key);
 	}
-
+	
 	public abstract L newEntity();
 
 	protected abstract L updateTestEntity(L entity);
