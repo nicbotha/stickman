@@ -52,8 +52,8 @@
 		<servlet-name>odata</servlet-name>
 		<url-pattern>/odata/*</url-pattern>
 	</servlet-mapping>
-	
-		<servlet>
+
+	<servlet>
 		<servlet-name>fileresource</servlet-name>
 		<servlet-class>au.web.FileResourceServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>

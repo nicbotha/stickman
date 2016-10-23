@@ -19,7 +19,7 @@ public class FileResourceMapper implements Mapper<FileResource> {
 	public static final String TAGS_P = "Tags";
 	public static final String TYPE_P = "Type";
 
-	public FileResource toJPAEntity(Entity from) {
+	public FileResource toJPAEntity(Entity from) throws IllegalArgumentException{
 		
 		if (from != null) {
 			FileResource to = new FileResource();
@@ -30,7 +30,7 @@ public class FileResourceMapper implements Mapper<FileResource> {
 		return null;
 	}
 
-	public Entity toOlingoEntity(FileResource from) {
+	public Entity toOlingoEntity(FileResource from) throws IllegalArgumentException{
 		
 		if (from != null) {
 			Entity to = new Entity();
@@ -48,7 +48,7 @@ public class FileResourceMapper implements Mapper<FileResource> {
 		return null;
 	}
 
-	public void copyInto(Entity from, FileResource to, HttpMethod httpMethod) {
+	public void copyInto(Entity from, FileResource to, HttpMethod httpMethod) throws IllegalArgumentException{
 		Property nameProperty = from.getProperty(FileResourceMapper.NAME_P);
 		Property descriptionProperty = from.getProperty(FileResourceMapper.DESCRIPTION_P);
 		Property docStoreIdProperty = from.getProperty(FileResourceMapper.DOCSTOREID_P);

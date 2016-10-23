@@ -14,7 +14,7 @@
 				</tileContent>
 			</GenericTile>
 			
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>Tile.Header.FileResource}" subheader="{i18n>Tile.Subheader.FileResource}" press="onSomePress">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>Tile.Header.FileResource}" subheader="{i18n>Tile.Subheader.FileResource}" press="onFileResourcePress">
 				<tileContent>
 					<TileContent>
 						<content>

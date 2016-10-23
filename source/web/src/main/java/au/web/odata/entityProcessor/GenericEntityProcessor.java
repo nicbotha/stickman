@@ -50,6 +50,8 @@ import org.apache.olingo.server.api.uri.UriResourceEntitySet;
 import org.apache.olingo.server.api.uri.UriResourceProperty;
 import org.apache.olingo.server.api.uri.queryoption.ExpandOption;
 import org.apache.olingo.server.api.uri.queryoption.SelectOption;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -59,9 +61,10 @@ import au.web.odata.ODataUtil;
 @Component("GenericEntityProcessor")
 public class GenericEntityProcessor implements EntityCollectionProcessor, EntityProcessor, PrimitiveProcessor, PrimitiveValueProcessor, ComplexProcessor {
 
+	protected final Logger log = LoggerFactory.getLogger(GenericEntityProcessor.class);
+	
 	@Autowired
 	private ApplicationContext ctx;
-
 	private OData odata;
 	private ServiceMetadata serviceMetadata;
 
@@ -316,7 +319,7 @@ public class GenericEntityProcessor implements EntityCollectionProcessor, Entity
 
 		return result;
 	}
-
+	
 	private EdmEntitySet getEdmEntitySet(final UriInfoResource uriInfo) throws ODataApplicationException {
 		final List<UriResource> resourcePaths = uriInfo.getUriResourceParts();
 		/*

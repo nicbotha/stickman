@@ -43,7 +43,14 @@ public interface EntityProcessor<K extends CrudRepository, L extends BaseEntity>
 	@SuppressWarnings("unchecked")
 	public default Entity create(EdmEntitySet edmEntitySet, Entity requestEntity) throws ODataApplicationException {
 		if (requestEntity != null) {
-			L someEntity = getMapper().toJPAEntity(requestEntity);
+			L someEntity = null;
+			try {
+				someEntity = getMapper().toJPAEntity(requestEntity);
+			} catch (IllegalArgumentException e) {
+				log.error("Could not map OData to entity.",e);
+				throw new ODataApplicationException("Could not map OData to entity.",HttpStatusCode.INTERNAL_SERVER_ERROR.getStatusCode(), Locale.ENGLISH, e);
+			}
+			
 			try {
 				someEntity = (L) getRepository().save(someEntity);
 				return getMapper().toOlingoEntity(someEntity);
@@ -103,7 +110,7 @@ public interface EntityProcessor<K extends CrudRepository, L extends BaseEntity>
 
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public default void delete(EdmEntitySet edmEntitySet, List<UriParameter> keyParams) throws ODataApplicationException {
 		EdmEntityType edmEntityType = edmEntitySet.getEntityType();
@@ -117,6 +124,7 @@ public interface EntityProcessor<K extends CrudRepository, L extends BaseEntity>
 	}
 
 	public default void exceptionHandler(Exception e) throws ODataApplicationException {
+		log.error("Could not persist " + getEntityTypeName(), e);
 		if (e.getCause() != null && e.getCause() instanceof RollbackException) {
 			final RollbackException re = (RollbackException) e.getCause();
 

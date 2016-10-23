@@ -13,11 +13,11 @@ import au.model.entity.BaseEntity;
 
 public interface Mapper<K extends BaseEntity> {
 	
-	public K toJPAEntity(Entity odata);
+	public K toJPAEntity(Entity odata) throws IllegalArgumentException;
 	
-	public Entity toOlingoEntity(K jpa);
+	public Entity toOlingoEntity(K jpa) throws IllegalArgumentException;
 	
-	public void copyInto(Entity odata, K jpa, HttpMethod httpMethod);
+	public void copyInto(Entity odata, K jpa, HttpMethod httpMethod) throws IllegalArgumentException;
 	
 	public default Property createPrimitive(final String name, final Object value) {
 		return new Property(null, name, ValueType.PRIMITIVE, value);

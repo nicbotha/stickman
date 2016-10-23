@@ -95,7 +95,22 @@
 					"pattern": "somecreate",
 					"name": "someCreate",
 					"target": "someCreate"
-				}
+				},
+				{
+					"pattern": "fileresourcelist",
+					"name": "fileresourceList",
+					"target": "fileresourceList"
+				},
+				{
+					"pattern": "fileresource/{id}",
+					"name": "fileresourceView",
+					"target": "fileresourceView"
+				},
+				{
+					"pattern": "fileresourcecreate",
+					"name": "fileresourceCreate",
+					"target": "fileresourceCreate"
+				}			
 			],
 			"targets": {
 				"home": {
@@ -117,6 +132,20 @@
 				},
 				"someCreate": {
 					"viewName": "some.SomeCreate",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"fileresourceList": {
+					"viewPath": "stickman.adminapp.view.fileresource",
+					"viewName": "FileResourceList",
+					"viewLevel": 2
+				},
+				"fileresourceView": {
+					"viewName": "fileresource.FileResourceView",
+					"viewLevel": 3
+				},
+				"fileresourceCreate": {
+					"viewName": "fileresource.FileResourceCreate",
 					"viewLevel": 3,
 					"transition": "flip"
 				}

@@ -15,13 +15,13 @@ sap.ui.define([
 				fromTarget : "home"
 			});
 		},
-		
-		onNavToSomeList : function (oEvent){
+				
+		onSomePress: function(){
 			this.getRouter().navTo("someList");
 		},
 		
-		onSomePress: function(){
-			this.getRouter().navTo("someList");
+		onFileResourcePress: function(){
+			this.getRouter().navTo("fileresourceList");
 		}
 
 	});
