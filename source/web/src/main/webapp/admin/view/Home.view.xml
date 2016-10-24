@@ -1,10 +1,13 @@
 <mvc:View controllerName="stickman.adminapp.controller.Home" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
 
-	<Page title="Stickman" class="sapUiResponsiveContentPadding">
-		<content>
+	<Page title="Stickman" >
+	<headerContent>
+					<!--To add header icons-->
+					<Button icon="sap-icon://role" id="btnRoleId" press="onRoleButtonPressed" tooltip="{i18n>home.role}"/>
+				</headerContent>
 			<!-- Button id="displayNotFoundBtn" text="Display NotFound" press="onDisplayNotFound" class="sapUiTinyMarginEnd" /-->
 			
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>Tile.Header.Some}" subheader="{i18n>Tile.Subheader.Some}" press="onSomePress">
+			<!-- <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>Tile.Header.Some}" subheader="{i18n>Tile.Subheader.Some}" press="onSomePress">
 				<tileContent>
 					<TileContent>
 						<content>
@@ -12,7 +15,31 @@
 						</content>
 					</TileContent>
 				</tileContent>
-			</GenericTile>
-		</content>
+			</GenericTile> -->
+			
+			<content>
+				<TileContainer
+					id="container"
+					tileDelete="handleTileDelete">
+					<StandardTile
+						press="onSomePress"
+						icon="/web/admin/images/someImage.png"
+						type=""
+						number=""
+						numberUnit=""
+						title="{i18n>Tile.Header.Some}"
+						info="{i18n>Tile.Subheader.Some}"
+						infoState="" />
+						<StandardTile
+						press="stockTilePressed"
+						icon="sap-icon://inspection"
+						type=""
+						number=""
+						numberUnit=""
+						title="Another"
+						info=""
+						infoState="" />
+				</TileContainer>
+			</content>
 	</Page>
 </mvc:View>
